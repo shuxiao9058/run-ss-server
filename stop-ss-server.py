@@ -78,7 +78,7 @@ def main():
         try:
             with open(pid_file, 'r') as f:
                 pid = f.read()
-                if pid is not None and pid_exists(pid) == True:
+                if pid is not None and pid_exists(int(pid)) == True:
                     os.kill(int(pid), signal.SIGTERM) # or signal.SIGKILL
                 else:
                     print('Pid({0}) is not running or invalid.'.format(pid))
